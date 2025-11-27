@@ -59,6 +59,10 @@ mod zk_soundness_vault_scripts {
         pub fn get_total_locked_via_script(&self) -> Decimal {
             self.vault.get_total_locked()
         }
+        /// Return true if the vault currently has zero XRD locked.
+        pub fn is_vault_empty_via_script(&self) -> bool {
+            self.vault.get_total_locked().is_zero()
+        }
 
         /// Read-only helper: how many notes have been created so far.
         pub fn get_note_count_via_script(&self) -> u64 {
