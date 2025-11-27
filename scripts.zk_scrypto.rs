@@ -16,6 +16,9 @@ mod zk_soundness_vault_scripts {
         /// 1) Call the vault’s own instantiate function first (whatever it’s called in `app.zk_scrypto.rs`),
         ///    capture the returned `Global<ZkSoundnessVault>`.
         /// 2) Call this `instantiate` and pass that vault as an argument.
+                // -----------------------------
+        // Instantiation
+        // -----------------------------
         pub fn instantiate(
             vault: Global<ZkSoundnessVault>,
         ) -> Global<ZkSoundnessVaultScripts> {
@@ -31,6 +34,9 @@ mod zk_soundness_vault_scripts {
         /// - `commitment`: opaque string created off-chain (hash, encrypted note, etc.)
         ///
         /// Returns: `note_id` created by the underlying vault.
+                // -----------------------------
+        // Deposits
+        // -----------------------------
         pub fn deposit_with_commitment_script(
             &mut self,
             xrd: Bucket,
@@ -46,6 +52,9 @@ mod zk_soundness_vault_scripts {
         /// - `note_id`: id previously returned from a deposit.
         ///
         /// Returns: `Bucket` of XRD withdrawn from the vault.
+                // -----------------------------
+        // Withdrawals
+        // -----------------------------
         pub fn withdraw_note_script(
             &mut self,
             note_id: u64,
