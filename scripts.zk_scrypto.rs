@@ -54,6 +54,14 @@ mod zk_soundness_vault_scripts {
             //   pub fn withdraw_note(&mut self, note_id: u64) -> Bucket
             self.vault.withdraw_note(note_id)
         }
+        /// Convenience: withdraw a note directly back to the caller.
+        pub fn withdraw_note_to_caller_script(
+            &mut self,
+            note_id: u64,
+        ) -> Bucket {
+            let caller: ComponentAddress = Runtime::caller();
+            self.vault.withdraw_note(note_id, caller)
+        }
 
         /// Read-only helper: total XRD locked in the vault (according to its accounting).
         pub fn get_total_locked_via_script(&self) -> Decimal {
