@@ -25,7 +25,7 @@ mod zk_soundness_vault_scripts {
                 .globalize()
         }
 
-        /// Deposit XRD into the vault with a commitment.
+              /// Deposit XRD into the underlying vault with a commitment.
         ///
         /// - `xrd`: bucket of XRD (taken from the caller’s account in the manifest)
         /// - `commitment`: opaque string created off-chain (hash, encrypted note, etc.)
