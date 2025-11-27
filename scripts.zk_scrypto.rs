@@ -31,13 +31,12 @@ mod zk_soundness_vault_scripts {
         /// - `commitment`: opaque string created off-chain (hash, encrypted note, etc.)
         ///
         /// Returns: `note_id` created by the underlying vault.
-        pub fn deposit_with_commitment_script(
+              pub fn deposit_with_commitment_script(
             &mut self,
             xrd: Bucket,
             commitment: String,
         ) -> u64 {
-            // Assumes underlying blueprint method:
-            //   pub fn deposit_with_commitment(&mut self, xrd: Bucket, commitment: String) -> u64
+            info!("Depositing into zk_soundness_vault via scripts wrapper");
             self.vault.deposit_with_commitment(xrd, commitment)
         }
 
