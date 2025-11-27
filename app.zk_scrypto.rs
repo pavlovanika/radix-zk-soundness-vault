@@ -35,6 +35,8 @@ mod zk_soundness_vault {
     }
 
     impl ZkSoundnessVault {
+              /// Instantiate a new zk soundness vault component with an empty XRD vault
+        /// and no owner (OwnerRole::None).
         pub fn instantiate() -> Global<ZkSoundnessVault> {
             let component = Self {
                 vault: Vault::new(RADIX_TOKEN),
