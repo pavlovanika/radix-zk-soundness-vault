@@ -1,7 +1,7 @@
 // File: app.zk_scrypto.rs
 
 use scrypto::prelude::*;
-
+ const VAULT_RESOURCE: ResourceAddress = RADIX_TOKEN;
 #[blueprint]
 mod zk_soundness_vault {
     use scrypto::prelude::*;
