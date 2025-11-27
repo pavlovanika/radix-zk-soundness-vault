@@ -65,4 +65,20 @@ mod zk_soundness_vault_scripts {
             self.vault.get_note_count()
         }
     }
+            // ---------------------------------------------------------
+        // Example manifest flow (conceptual):
+        //
+        // 1. Call `ZkSoundnessVault::instantiate()` to get a vault.
+        // 2. Call `ZkSoundnessVaultScripts::instantiate(vault)` to get wrapper.
+        // 3. For deposits:
+        //      call `deposit_with_commitment_script` or `deposit_with_empty_commitment_script`.
+        // 4. For withdrawals:
+        //      call `withdraw_note_script` or `withdraw_note_to_caller_script`.
+        // 5. For dashboards:
+        //      use `get_total_locked_via_script`, `get_note_count_via_script`,
+        //      `get_vault_stats_via_script`, etc.
+        // ---------------------------------------------------------
+    }
+}
+
 }
