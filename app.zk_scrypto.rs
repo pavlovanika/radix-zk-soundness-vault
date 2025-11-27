@@ -78,7 +78,7 @@ mod zk_soundness_vault {
             emit_event(DepositEvent {
                 note_id,
                 amount,
-                opaque_commitment: String::from("opaque:stored-off-chain (Aztec/Zama style)"),
+                               opaque_commitment: String::from("opaque:stored-off-chain"),
             });
 
             note_id
