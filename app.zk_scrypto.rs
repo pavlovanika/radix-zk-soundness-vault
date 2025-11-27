@@ -124,6 +124,8 @@ mod zk_soundness_vault {
             self.total_locked
         }
 
+            /// Return the number of notes ever created.
+        /// This is equal to the next note id and includes spent notes.
         pub fn get_note_count(&self) -> u64 {
             self.next_note_id
         }
