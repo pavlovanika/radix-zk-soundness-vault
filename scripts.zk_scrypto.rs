@@ -52,7 +52,8 @@ mod zk_soundness_vault_scripts {
         ) -> Bucket {
             // Assumes underlying blueprint method:
             //   pub fn withdraw_note(&mut self, note_id: u64) -> Bucket
-            self.vault.withdraw_note(note_id)
+                     info!("Withdrawing note_id {} via scripts wrapper", note_id);
+            self.vault.withdraw_note(note_id, recipient)
         }
 
         /// Read-only helper: total XRD locked in the vault (according to its accounting).
