@@ -119,6 +119,10 @@ mod zk_soundness_vault {
 
             withdrawn
         }
+        /// Return the resource address managed by this vault (XRD in this example).
+        pub fn get_vault_resource_address(&self) -> ResourceAddress {
+            VAULT_RESOURCE
+        }
 
         pub fn get_total_locked(&self) -> Decimal {
             self.total_locked
