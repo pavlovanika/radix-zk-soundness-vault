@@ -119,7 +119,13 @@ mod zk_soundness_vault {
 
             withdrawn
         }
-
+  /// Return true if the given note exists and is marked as spent.
+        pub fn is_note_spent(&self, note_id: u64) -> bool {
+            match self.notes.get(&note_id) {
+                Some(note) => note.spent,
+                None => false,
+            }
+        }
         pub fn get_total_locked(&self) -> Decimal {
             self.total_locked
         }
