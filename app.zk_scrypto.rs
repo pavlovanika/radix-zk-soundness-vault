@@ -28,9 +28,13 @@ mod zk_soundness_vault {
     }
 
     pub struct ZkSoundnessVault {
+        /// Vault holding all locked XRD.
         vault: Vault,
+        /// Mapping from note_id -> note data.
         notes: KeyValueStore<u64, Note>,
+        /// Next note id to assign (also equal to number of notes ever created).
         next_note_id: u64,
+        /// Total XRD currently locked across all unspent notes.
         total_locked: Decimal,
     }
 
