@@ -54,6 +54,15 @@ mod zk_soundness_vault_scripts {
             //   pub fn withdraw_note(&mut self, note_id: u64) -> Bucket
             self.vault.withdraw_note(note_id)
         }
+        /// Return the underlying vault component reference.
+        pub fn get_underlying_vault(&self) -> Global<VaultBlueprint> {
+            self.vault
+        }
+
+        /// Return the underlying vault's component address.
+        pub fn get_underlying_vault_address(&self) -> ComponentAddress {
+            self.vault.address()
+        }
 
         /// Read-only helper: total XRD locked in the vault (according to its accounting).
         pub fn get_total_locked_via_script(&self) -> Decimal {
