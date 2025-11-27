@@ -132,4 +132,21 @@ mod zk_soundness_vault {
             self.notes.get(&note_id)
         }
     }
+            // --------------------------------------------------------------------
+        // Example flow (off-ledger perspective):
+        //
+        // 1. Instantiate:
+        //      let component = ZkSoundnessVault::instantiate();
+        // 2. User deposits XRD with a commitment:
+        //      component.call::<ZkSoundnessVault>("deposit_with_commitment", ...);
+        // 3. Off-chain, zk/FHE system tracks (note_id, commitment).
+        // 4. Later, authorized caller withdraws:
+        //      component.call::<ZkSoundnessVault>("withdraw_note", ...);
+        // 5. Dashboards can query:
+        //      get_total_locked(), get_note_count(), get_unspent_note_count(),
+        //      get_note_metadata(note_id), check_soundness_invariant(), etc.
+        // --------------------------------------------------------------------
+    }
+}
+
 }
