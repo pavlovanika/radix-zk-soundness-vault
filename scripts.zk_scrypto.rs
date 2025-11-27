@@ -2,12 +2,13 @@ use scrypto::prelude::*;
 
 #[blueprint]
 mod zk_soundness_vault_scripts {
-    use crate::zk_soundness_vault::ZkSoundnessVault;
+       use crate::zk_soundness_vault::ZkSoundnessVault as VaultBlueprint;
 
-    pub struct ZkSoundnessVaultScripts {
+            pub struct ZkSoundnessVaultScripts {
         /// Live component of the underlying vault.
-        vault: Global<ZkSoundnessVault>,
+        vault: Global<VaultBlueprint>,
     }
+
 
     impl ZkSoundnessVaultScripts {
         /// Instantiate the scripts wrapper around an **already deployed** vault component.
@@ -16,8 +17,8 @@ mod zk_soundness_vault_scripts {
         /// 1) Call the vault’s own instantiate function first (whatever it’s called in `app.zk_scrypto.rs`),
         ///    capture the returned `Global<ZkSoundnessVault>`.
         /// 2) Call this `instantiate` and pass that vault as an argument.
-        pub fn instantiate(
-            vault: Global<ZkSoundnessVault>,
+              pub fn instantiate(
+            vault: Global<VaultBlueprint>,
         ) -> Global<ZkSoundnessVaultScripts> {
             Self { vault }
                 .instantiate()
