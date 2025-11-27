@@ -127,6 +127,10 @@ mod zk_soundness_vault {
         pub fn get_note_count(&self) -> u64 {
             self.next_note_id
         }
+        /// Return the total number of notes ever created (including spent ones).
+        pub fn get_total_notes_created(&self) -> u64 {
+            self.next_note_id
+        }
 
         pub fn get_note_metadata(&self, note_id: u64) -> Option<Note> {
             self.notes.get(&note_id)
