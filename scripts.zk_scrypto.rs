@@ -4,6 +4,8 @@ use scrypto::prelude::*;
 mod zk_soundness_vault_scripts {
     use crate::zk_soundness_vault::ZkSoundnessVault;
 
+      /// Scripts/wrapper component that knows about a single underlying
+    /// `ZkSoundnessVault` instance and forwards calls to it.
     pub struct ZkSoundnessVaultScripts {
         /// Live component of the underlying vault.
         vault: Global<ZkSoundnessVault>,
