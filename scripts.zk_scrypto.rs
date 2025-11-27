@@ -10,12 +10,13 @@ mod zk_soundness_vault_scripts {
     }
 
     impl ZkSoundnessVaultScripts {
-        /// Instantiate the scripts wrapper around an **already deployed** vault component.
+            /// Instantiate the scripts wrapper around an **already deployed** vault component.
         ///
         /// Typical flow in a transaction manifest:
-        /// 1) Call the vault’s own instantiate function first (whatever it’s called in `app.zk_scrypto.rs`),
-        ///    capture the returned `Global<ZkSoundnessVault>`.
+        /// 1) Call the vault’s own instantiate function first, capture the returned `Global<VaultBlueprint>`.
         /// 2) Call this `instantiate` and pass that vault as an argument.
+        ///
+        /// Note: this wrapper is globalized with `OwnerRole::None`, meaning it has no admin.
         pub fn instantiate(
             vault: Global<ZkSoundnessVault>,
         ) -> Global<ZkSoundnessVaultScripts> {
