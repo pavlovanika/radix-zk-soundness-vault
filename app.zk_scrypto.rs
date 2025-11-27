@@ -84,6 +84,11 @@ mod zk_soundness_vault {
             note_id
         }
 
+               /// Withdraw a note's XRD to the given recipient.
+        ///
+        /// NOTE: This method assumes that off-chain zk/FHE verification has
+        /// already happened and that the caller is authorized to spend `note_id`.
+        /// No on-ledger proof verification is performed in this minimal example.
         pub fn withdraw_note(&mut self, note_id: u64, recipient: ComponentAddress) -> Bucket {
             let mut note = self
                 .notes
