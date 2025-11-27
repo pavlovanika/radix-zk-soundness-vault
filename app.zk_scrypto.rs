@@ -127,6 +127,11 @@ mod zk_soundness_vault {
         pub fn get_note_count(&self) -> u64 {
             self.next_note_id
         }
+        /// Debug helper: returns true if the main soundness invariant holds:
+        /// total_locked == vault.amount().
+        pub fn check_soundness_invariant(&self) -> bool {
+            self.total_locked == self.vault.amount()
+        }
 
         pub fn get_note_metadata(&self, note_id: u64) -> Option<Note> {
             self.notes.get(&note_id)
