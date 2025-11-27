@@ -55,12 +55,12 @@ mod zk_soundness_vault_scripts {
             self.vault.withdraw_note(note_id)
         }
 
-        /// Read-only helper: total XRD locked in the vault (according to its accounting).
-        pub fn get_total_locked_via_script(&self) -> Decimal {
+               /// Read-only helper: how many notes have been created so far (including spent ones).
+        pub fn get_note_count_via_script(&self) -> u64 {
             self.vault.get_total_locked()
         }
 
-        /// Read-only helper: how many notes have been created so far.
+              /// Read-only helper: how many notes have been created so far (including spent ones).
         pub fn get_note_count_via_script(&self) -> u64 {
             self.vault.get_note_count()
         }
