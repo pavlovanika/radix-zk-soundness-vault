@@ -110,6 +110,11 @@ mod zk_soundness_vault_scripts {
         pub fn get_note_count_via_script(&self) -> u64 {
             self.vault.get_note_count()
         }
+                /// Read-only helper: fetch metadata for a specific note id.
+        pub fn get_note_metadata_via_script(&self, note_id: u64) -> Option<Note> {
+            self.vault.get_note_metadata(note_id)
+        }
+
     }
             /// Convenience view: get (total_locked, note_count) in one call.
         pub fn get_vault_stats_via_script(&self) -> (Decimal, u64) {
