@@ -69,7 +69,10 @@ mod zk_soundness_vault {
             );
 
             let amount = payment.amount();
-            assert!(amount.is_positive(), "Deposit amount must be positive");
+                      assert!(
+                amount.is_positive(),
+                "Deposit amount must be strictly positive"
+            );
 
             self.vault.put(payment);
 
