@@ -107,4 +107,11 @@ mod zk_soundness_vault_scripts {
             self.vault.get_note_count()
         }
     }
+            /// Convenience view: get (total_locked, note_count) in one call.
+        pub fn get_vault_stats_via_script(&self) -> (Decimal, u64) {
+            let total = self.vault.get_total_locked();
+            let count = self.vault.get_note_count();
+            (total, count)
+        }
+
 }
