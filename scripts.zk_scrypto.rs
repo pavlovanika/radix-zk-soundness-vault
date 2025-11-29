@@ -1,3 +1,5 @@
+// Scripts wrapper for zk_soundness_vault: convenient entrypoints for UIs/manifests.
+
 use scrypto::prelude::*;
 
 #[blueprint]
