@@ -9,10 +9,14 @@ use scrypto::prelude::*;
 mod zk_soundness_vault {
     use scrypto::prelude::*;
 
+      /// A single locked note in the vault.
     #[derive(ScryptoSbor, Debug, Clone)]
     pub struct Note {
+        /// Off-chain zk/FHE commitment (hash, ciphertext, etc).
         pub commitment: String,
+        /// Amount of XRD locked in this note.
         pub amount: Decimal,
+        /// Whether this note has been spent.
         pub spent: bool,
     }
 
