@@ -56,18 +56,20 @@ mod zk_soundness_vault_scripts {
             self.vault.deposit_with_commitment(xrd, commitment)
         }
 
-        /// Withdraw using a note id.
+              /// Withdraw using a note id, sending the XRD to the given recipient.
         ///
         /// - `note_id`: id previously returned from a deposit.
+        /// - `recipient`: component or account address that should receive the XRD.
         ///
         /// Returns: `Bucket` of XRD withdrawn from the vault.
         pub fn withdraw_note_script(
             &mut self,
             note_id: u64,
+            recipient: ComponentAddress,
         ) -> Bucket {
             // Assumes underlying blueprint method:
-            //   pub fn withdraw_note(&mut self, note_id: u64) -> Bucket
-            self.vault.withdraw_note(note_id)
+            //   pub fn withdraw_note(&mut self, note_id: u64, recipient: ComponentAddress) -> Bucket
+            self.vault.withdraw_note(note_id, recipient)
         }
 
         /// Read-only helper: total XRD locked in the vault (according to its accounting).
