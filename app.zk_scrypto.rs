@@ -3,6 +3,8 @@
 
 use scrypto::prelude::*;
 
+/// A minimal zk-style soundness vault that locks XRD into "notes"
+/// with opaque commitments, inspired by Aztec/Zama-style off-chain systems.
 #[blueprint]
 mod zk_soundness_vault {
     use scrypto::prelude::*;
