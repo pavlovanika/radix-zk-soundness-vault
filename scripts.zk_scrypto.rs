@@ -2,6 +2,8 @@
 
 use scrypto::prelude::*;
 
+/// Blueprint providing script-style helpers around an existing
+/// `ZkSoundnessVault` component.
 #[blueprint]
 mod zk_soundness_vault_scripts {
     use crate::zk_soundness_vault::ZkSoundnessVault;
