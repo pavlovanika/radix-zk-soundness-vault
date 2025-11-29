@@ -61,8 +61,8 @@ mod zk_soundness_vault {
         }
 
         pub fn deposit_with_commitment(&mut self, mut payment: Bucket, commitment: String) -> u64 {
-            assert!(
-                payment.resource_address() == RADIX_TOKEN,
+                       assert!(
+                payment.resource_address() == VAULT_RESOURCE,
                 "Only XRD deposits are supported in this minimal example"
             );
 
