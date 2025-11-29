@@ -55,6 +55,14 @@ mod zk_soundness_vault_scripts {
             //   pub fn deposit_with_commitment(&mut self, xrd: Bucket, commitment: String) -> u64
             self.vault.deposit_with_commitment(xrd, commitment)
         }
+        /// Convenience: deposit XRD with an empty commitment string.
+        pub fn deposit_with_empty_commitment_script(
+            &mut self,
+            xrd: Bucket,
+        ) -> u64 {
+            let commitment = String::new();
+            self.vault.deposit_with_commitment(xrd, commitment)
+        }
 
               /// Withdraw using a note id, sending the XRD to the given recipient.
         ///
