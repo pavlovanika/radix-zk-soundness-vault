@@ -16,14 +16,14 @@ mod zk_soundness_vault {
         pub spent: bool,
     }
 
-    #[derive(ScryptoSbor, Debug, Clone)]
+     #[derive(ScryptoSbor, Debug, Clone, Copy)]
     pub struct DepositEvent {
         pub note_id: u64,
         pub amount: Decimal,
         pub opaque_commitment: String,
     }
 
-    #[derive(ScryptoSbor, Debug, Clone)]
+    #[derive(ScryptoSbor, Debug, Clone, Copy)]
     pub struct WithdrawalEvent {
         pub note_id: u64,
         pub amount: Decimal,
