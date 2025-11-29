@@ -48,7 +48,7 @@ mod zk_soundness_vault {
     impl ZkSoundnessVault {
         pub fn instantiate() -> Global<ZkSoundnessVault> {
             let component = Self {
-                vault: Vault::new(RADIX_TOKEN),
+                              vault: Vault::new(VAULT_RESOURCE),
                 notes: KeyValueStore::new(),
                 next_note_id: 0,
                 total_locked: Decimal::ZERO,
