@@ -87,6 +87,15 @@ mod zk_soundness_vault_scripts {
             let caller: ComponentAddress = Runtime::caller();
             self.vault.withdraw_note(note_id, caller)
         }
+        /// Return the underlying vault component reference.
+        pub fn get_underlying_vault(&self) -> Global<VaultBlueprint> {
+            self.vault
+        }
+
+        /// Return the underlying vault's component address.
+        pub fn get_underlying_vault_address(&self) -> ComponentAddress {
+            self.vault.address()
+        }
 
         /// Read-only helper: total XRD locked in the vault (according to its accounting).
         pub fn get_total_locked_via_script(&self) -> Decimal {
