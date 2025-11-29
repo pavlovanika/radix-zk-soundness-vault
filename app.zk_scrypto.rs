@@ -155,4 +155,17 @@ mod zk_soundness_vault {
             self.notes.get(&note_id)
         }
     }
+            /// Approximate count of unspent notes by scanning the store.
+        /// This is O(n) over the number of notes and intended for light use.
+        pub fn get_unspent_note_count(&self) -> u64 {
+            let mut count: u64 = 0;
+            for (id, note) in self.notes.iter() {
+                let _ = id; // silence unused warning if needed
+                if !note.spent {
+                    count += 1;
+                }
+            }
+            count
+        }
+
 }
