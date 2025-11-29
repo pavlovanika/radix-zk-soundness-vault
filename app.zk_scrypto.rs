@@ -148,6 +148,11 @@ mod zk_soundness_vault {
         pub fn get_total_locked(&self) -> Decimal {
             self.total_locked
         }
+        /// Return the current XRD balance of the underlying vault.
+        /// Invariants should ensure this equals `total_locked`.
+        pub fn get_locked_balance_in_vault(&self) -> Decimal {
+            self.vault.amount()
+        }
 
             /// Return the number of notes ever created.
         /// This is equal to the next note id and includes spent notes.
