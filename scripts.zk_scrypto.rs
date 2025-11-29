@@ -29,6 +29,16 @@ mod zk_soundness_vault_scripts {
                 .prepare_to_globalize(OwnerRole::None)
                 .globalize()
         }
+        /// Convenience: instantiate a new vault and a scripts wrapper around it
+        /// in a single call.
+        pub fn instantiate_with_new_vault() -> (Global<VaultBlueprint>, Global<ZkSoundnessVaultScripts>) {
+            let vault: Global<VaultBlueprint> = VaultBlueprint::instantiate();
+            let wrapper = Self { vault }
+                .instantiate()
+                .prepare_to_globalize(OwnerRole::None)
+                .globalize();
+            (vault, wrapper)
+        }
 
         /// Deposit XRD into the vault with a commitment.
         ///
