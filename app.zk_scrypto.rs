@@ -1,4 +1,5 @@
 // File: app.zk_scrypto.rs
+// zk_soundness_vault: simple note-based XRD vault with zk/FHE-style commitments.
 
 use scrypto::prelude::*;
 
