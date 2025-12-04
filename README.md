@@ -153,3 +153,20 @@ No other files introduce name collisions with the zk_soundness_vault module or Z
 
 If compilation fails due to version differences, adjust imports and the globalize pattern in the instantiate function to match your Scrypto release while preserving the core struc
 
+## Usage (Quickstart examples)
+
+> Note: The exact commands / manifest syntax may differ slightly depending on your Scrypto / Babylon tooling version. Treat the snippets below as templates.
+
+### 1. Instantiate the vault
+
+- Build and publish your Scrypto package as usual.
+- Then instantiate the `ZkSoundnessVault` blueprint using a transaction manifest similar to:
+
+```text
+# Pseudo-manifest (adjust for your tooling)
+CALL_FUNCTION
+  Address("PACKAGE_ADDRESS_HERE")
+  "zk_soundness_vault"
+  "instantiate_zk_soundness_vault"
+  ;
+
