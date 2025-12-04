@@ -4,10 +4,12 @@ Minimal Scrypto blueprint for Radix that demonstrates a privacy inspired vault f
 
 The blueprint stores deposits as opaque notes keyed by a commitment string while keeping the on ledger logic focused on simple accounting and event emission. Real zk and FHE logic is intentionally left off chain.
 
-Repository contains exactly two files:
+Repository contains three main files:
 
-1. app.zk_scrypto.rs – Scrypto blueprint implementing the vault
-2. README.md – this documentation file
+  1. app.zk_scrypto.rs – Scrypto blueprint implementing the vault
+  2. scripts.zk_scrypto.rs – example Scrypto scripts for instantiating and calling the vault
+  3. README.md – this documentation file
+
 
 ---
 
